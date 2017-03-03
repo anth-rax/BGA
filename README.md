@@ -7,7 +7,7 @@
     For right now, tokens are randomly generated 1's and 0's between 20-30 char length. So a= 27ch, but b= 21ch. 
         As of right now, reading multiple letter like de = 20 char length doesn't work. It just won't be read.
         I plan on implementing this.
-    I plan on implementing some XOR logic to further security
+    I plan on implementing some XOR logic to further "security"
     The logic of encryption works as follows: 
     
     Plaintext: "PI"
