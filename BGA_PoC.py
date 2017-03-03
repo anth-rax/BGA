@@ -3,6 +3,7 @@
 ##------Proof of Concept
 ##------Developed by Kris 2017
 ###################
+#This program is in no way cryptographically secure.
 import random
 import string
 import os
@@ -31,23 +32,6 @@ Parent: setup() or custom()
             if '###{}###'.format(p) in keys[c]:
                 _PULLED_VALUES += keys[c]
     sort_values(_PULLED_VALUES, cipher)
-    
-def upload_cipher_keys():
-    """
-Reads files containing ONE cipher per file & ONE key per file of the same name
-in different directories
-Parent: setup()
-
-    """
-    nme = input("Please enter the name of the file you would like to import\n>")
-    with open("STORE/Ciphers/{}".format(nme), "r") as ciph:
-        for line in ciph:
-            global CIPHER
-            CIPHER = line
-    with open("STORE/Tokens/{}".format(nme), "r") as tokens:
-        for line in tokens:
-            KEEZ = [line]
-    pull_plaintext_values(KEEZ,CIPHER)
     
 
 def  setup(): 
@@ -88,8 +72,8 @@ Parent: setup()
 
     """
     global CIPHER
-    CIPHER = '{}'.format(os.urandom(BITS))
-    CIPHER = CIPHER[3:]
+    cipher = '{}'.format(os.urandom(BITS))
+    CIPHER = cipher[3:]
         
 def custom(LENGTH, KEYSLOTS, SET):
     """
@@ -147,6 +131,7 @@ Parent: pull_plaintext_values()
         for r in range(len(pulled[k])):
             if '0' or '1' in pulled[k][r]:
                 _FINDEX += pulled[k][r]
+    print(_FINDEX)
     for x in _FINDEX:   #LIST
         if x  == '0' or x == '1':
             FINDEX += x     #STRING
@@ -156,19 +141,22 @@ def encrypt(indexstring,cipher):
     """
 Reads sorted values from FINDEX
 Parent: sort_values()
+!!!IMPORTANT!!! - "\\" PARSES AS A SINGLE VALUE(IN YOUR CIPHER)
     """
+    print(indexstring)
+    indexstring = list(indexstring)
     cipher = list(cipher)
     inx = indexstring
     ENCRYPTED = ''
-    counter = 0
+    counter = -1
     mult = 2
     for x in indexstring:
+        counter = counter + 1
         if x == '1':
-            ENCRYPTED += cipher[counter]
+            ENCRYPTED += list(cipher)[counter]
         if counter >= len(cipher):
             cipher = cipher * mult
             mult = mult + 1
-        counter = counter + 1
     print(ENCRYPTED)
     _save = input("Do you wish to save your cipher and keys?(Y/N)\n>")
     if _save == 'Y' or  _save == 'y':
