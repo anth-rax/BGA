@@ -90,7 +90,7 @@ Parent if Invoked: setup()
     for K in range(KEYSLOTS):
         hold_this = list()  
         for r in range(LENGTH):
-            random.SystemRandom().choice("01")
+            random.SystemRandom().choice("010101")
         if hold_this not in KEYS and len(hold_this) == LENGTH :
             KEYS.append(['###{}###'.format(SET[K]), hold_this])                                                                                                                                  
         if hold_this in KEYS:
@@ -106,10 +106,10 @@ Parent: setup()
     KEYS = []
     print("Building your data...")
     for K in range(KEYSLOTS):
-        LENGTH = random.randrange(20,30)
+        LENGTH = random.SystemRandom().randrange(20,30)
         hold_this = list()  
         for r in range(LENGTH):
-            x = random.choice('010101')
+            x = random.SystemRandom().choice('010101')
             hold_this += x
         if hold_this not in KEYS and len(hold_this) == LENGTH :
             KEYS.append(['###{}###'.format(SET[K]), hold_this])                                                                                                                                  
