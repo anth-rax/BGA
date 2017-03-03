@@ -109,7 +109,7 @@ Parent: setup()
         LENGTH = random.randrange(20,30)
         hold_this = list()  
         for r in range(LENGTH):
-            x = random.choice('01')
+            x = random.choice('010101')
             hold_this += x
         if hold_this not in KEYS and len(hold_this) == LENGTH :
             KEYS.append(['###{}###'.format(SET[K]), hold_this])                                                                                                                                  
@@ -144,7 +144,6 @@ Parent: sort_values()
     ENCRYPTED = ''
     counter = 0
     mult = 2
-    print(indexstring)
     for x in indexstring:
         if x == '1':
             ENCRYPTED += cipher[counter]
@@ -157,7 +156,7 @@ Parent: sort_values()
     if _save == 'Y' or  _save == 'y':
         name = input("What would you like to name your file?(File will output in the same directory as BGA.py)\n>")
         with open("STORE/Ciphers/{}".format(name), "w+") as ciph:
-            ciph.write("{}".format(CIPHER))
+            ciph.write("{}".format(CIPHER)) #Make sure not to include quotes when using these.. These will not appear in a cipher
         with open("STORE/Tokens/{}".format(name), "w+")as tokens:
             tokens.write("{}".format(KEYS))
 setup()  ##Starting Function
