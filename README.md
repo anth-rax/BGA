@@ -1,4 +1,3 @@
-    Note: This project is in no way secure. 
     ***********************
        HOW TO ENCRYPT
     ***********************
