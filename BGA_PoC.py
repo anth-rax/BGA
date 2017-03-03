@@ -91,7 +91,7 @@ Parent if Invoked: setup()
         hold_this = list()  
         for r in range(LENGTH):
             random.SystemRandom().choice("010101")
-        if hold_this not in KEYS and len(hold_this) == LENGTH :
+        if hold_this not in KEYS:
             KEYS.append(['###{}###'.format(SET[K]), hold_this])                                                                                                                                  
         if hold_this in KEYS:
             print("A fatal error or clash of indexes occured. Please rerun the program.")
