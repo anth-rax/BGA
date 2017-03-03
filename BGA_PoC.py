@@ -1,8 +1,3 @@
-###################
-##------BoolGate Algo
-##------Proof of Concept
-##------Developed by Kris 2017
-###################
 import random
 import string
 import os
