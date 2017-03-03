@@ -1,9 +1,4 @@
-    ############################
-    ##------BoolGate Algo
-    ##------Proof of Concept     
-    ##------Developed by Kris 2017
-    ############################
-    Note: This project is in no way secure. There are multiple holes in it as of right now.
+    Note: This project is in no way secure. 
     ***********************
        HOW TO ENCRYPT
     ***********************
